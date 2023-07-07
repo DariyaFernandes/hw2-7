@@ -7,37 +7,29 @@ public class Employee {
     public final String firstName;
     public final String lastName;
 
+    private final Integer departmentId;
+    private final double salary;
+
+    public Employee(String firstName, String lastName, Integer departmentId, double salary) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.departmentId = departmentId;
+        this.salary = salary;
+    }
+
     public Employee(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.departmentId = 0;
+        this.salary = 0;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public Integer getDepartmentId() {
+        return departmentId;
     }
 
-    public String getLastName() {
-        return lastName;
+    public double getSalary() {
+        return salary;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName);
-    }
-}
